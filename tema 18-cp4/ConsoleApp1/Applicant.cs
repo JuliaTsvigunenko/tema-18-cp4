@@ -22,7 +22,7 @@ namespace ConsoleApp1
         public string Faculty { get { return faculty; } set { faculty = value; } }
 
         /// <summary>
-        /// 
+        /// конструктор с параметрами
         /// </summary>
         /// <param name="name"></param>
         /// <param name="surname"></param>
@@ -39,11 +39,22 @@ namespace ConsoleApp1
         public override void Info()
         {
             base.Info();
-            Console.WriteLine($"Факультет:{faculty}");
+            Console.WriteLine($"Факультет:{faculty}\n{Age()}");
         }
 
 
-
+        public static Applicant InPut()
+        {
+            Console.Write("Введите имя: ");
+            string name = Console.ReadLine();
+            Console.Write("Введите фамилию: ");
+            string surname = Console.ReadLine();
+            Console.Write("Введите дату рождения: ");
+            DateTime bh = DateTime.Parse(Console.ReadLine());
+            Console.Write("Введите факультет: ");
+            string faculty = Console.ReadLine();
+            return new Applicant(name, surname, bh, faculty);
+        }
         
 
 

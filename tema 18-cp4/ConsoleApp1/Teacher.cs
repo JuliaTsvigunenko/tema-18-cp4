@@ -21,8 +21,11 @@ namespace ConsoleApp1
         /// </summary>
         private string post;
 
+        private string faculty;
+
         public double Experience { get { return experience; } set { experience = value; } }
         public string Post { get { return post; } set { post = value; } }
+        public string Faculty { get { return faculty; } set { faculty = value; } }
 
 
         /// <summary>
@@ -32,11 +35,11 @@ namespace ConsoleApp1
         /// <param name="surname"></param>
         /// <param name="bh"></param>
         /// <param name="faculty">факультет</param>
-        /// <param name="course">курс</param>
         /// <param name="experience">стаж</param>
         /// <param name="post">должность</param>
-        public Teacher(string name, string surname, DateTime bh, string faculty, int course, double experience, string post) : base(name, surname, bh)
+        public Teacher(string name, string surname, DateTime bh, string faculty, double experience, string post) : base(name, surname, bh)
         {
+            this.faculty = faculty;
             this.experience = experience;
             this.post = post;
         }
@@ -49,7 +52,22 @@ namespace ConsoleApp1
         }
 
 
-
+        public static Teacher InPut()
+        {
+            Console.Write("Введите имя: ");
+            string name = Console.ReadLine();
+            Console.Write("Введите фамилию: ");
+            string surname = Console.ReadLine();
+            Console.Write("Введите дату рождения: ");
+            DateTime bh = DateTime.Parse(Console.ReadLine());
+            Console.Write("Введите факультет: ");
+            string faculty = Console.ReadLine();
+            Console.Write("Введите стаж: ");
+            double experience = Double.Parse(Console.ReadLine());
+            Console.Write("Введите должность: ");
+            string post = Console.ReadLine();
+            return new Teacher (name, surname, bh, faculty, experience, post);
+        }
 
     }
 }

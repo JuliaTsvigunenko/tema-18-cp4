@@ -55,7 +55,20 @@ namespace ConsoleApp1
             Console.WriteLine($"Факультет:{faculty}\nКурс:{course}");
         }
 
-
+        public static Student InPut()
+        {
+            Console.Write("Введите имя: ");
+            string name = Console.ReadLine();
+            Console.Write("Введите фамилию: ");
+            string surname = Console.ReadLine();
+            Console.Write("Введите дату рождения: ");
+            DateTime bh = DateTime.Parse(Console.ReadLine());
+            Console.Write("Введите факультет: ");
+            string faculty = Console.ReadLine();
+            Console.Write("Введите курс: ");
+            int course = Convert.ToInt32(Console.ReadLine());
+            return new Student (name, surname, bh, faculty, course);
+        }
 
 
 

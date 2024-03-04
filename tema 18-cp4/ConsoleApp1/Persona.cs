@@ -9,22 +9,12 @@ namespace ConsoleApp1
     //Персона абстрактный класс
     abstract class Persona
     {
-
-
-        /// <summary>
-        /// Поля ФИО, дата рождения
-        /// </summary>
-        private string name;
-        private string surname;
-        private DateTime bh;
-
-
         /// <summary>
         /// Свойство для доступа
         /// </summary>
-        public string Name { get { return name; } set { name = value; } }
-        public string Surname { get { return surname; } set { surname = value; } }
-        public DateTime Bh { get { return bh; } set { bh = value; } }
+        public string Name { get;  set;  }
+        public string Surname { get; set; }
+        public DateTime Bh { get; set; }
 
 
         /// <summary>
@@ -35,9 +25,9 @@ namespace ConsoleApp1
         /// <param name="bh">дата рождения</param>
         public Persona(string name, string surname, DateTime bh)
         {
-            this.name = name;
-            this.surname = surname;
-            this.bh = bh;
+            this.Name = name;
+            this.Surname = surname;
+            this.Bh = bh;
         }
 
         /// <summary>
@@ -45,7 +35,7 @@ namespace ConsoleApp1
         /// </summary>
         public virtual void Info()
         {
-            Console.WriteLine($"{Name}\n{surname}\n{bh}");
+            Console.WriteLine($"{Name}\n{Surname}\n{Bh}");
         }
 
 
@@ -53,17 +43,19 @@ namespace ConsoleApp1
         /// Метод определения возраста
         /// </summary>
         /// <returns></returns>
+
+        //public int Age()
+        //{
+        //    DateTime now = DateTime.Now;
+        //    int age = now.Year - Bh.Year;
+        //    if (now < Bh.AddYears(age)) age--;
+        //    return age;
+        //}
+
         public int Age()
         {
-            DateTime now = DateTime.Now;
-            int age = now.Year - bh.Year;
-            if (now < bh.AddYears(age)) age--;
-            return age;
+            return DateTime.Now.Year - Bh.Year;
         }
-
-
-
-
 
     }
 }
